@@ -2,7 +2,9 @@ package laundry.man
 
 class PesananController {
 
-    static scaffold = Pesanan
-
-//    def index() {}
+    def index() {
+        def custName = ""
+        def telephone = ""
+        [orang: custName, telpon: telephone]
+    }
 }
