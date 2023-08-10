@@ -9,9 +9,8 @@ hibernate:
 dataSource:
     pooled: true
     jmxExport: true
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+    driverClassName: com.mysql.jdbc.Driver
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 environments:
     development:
@@ -19,7 +18,9 @@ environments:
             picture: developmentpicture
         dataSource:
             dbCreate: create-drop
-            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: jdbc:mysql://localhost:3306/laundryman
+            username: "root"
+            password:
     test:
         dataSource:
             dbCreate: update
