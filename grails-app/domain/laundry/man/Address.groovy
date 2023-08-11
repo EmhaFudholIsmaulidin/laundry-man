@@ -2,13 +2,13 @@ package laundry.man
 
 class Address {
     String fullAddress
-    char block
+    String block
     int number
     String district
     String subDistrict
     int postcode
 
-    static belongsTo = [customer: Customer, company: CompanyBranch]
+    static belongsTo = [customer: Customer]
 
     static constraints = {
         fullAddress blank: false

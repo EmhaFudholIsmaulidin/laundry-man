@@ -3,7 +3,7 @@ package laundry.man
 class Customer {
     String name
     String email
-    int telephone
+    String telephone
 
     static hasMany = [address: Address]
 

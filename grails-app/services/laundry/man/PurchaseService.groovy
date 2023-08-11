@@ -2,14 +2,22 @@ package laundry.man
 
 import grails.transaction.Transactional
 
+import java.sql.Timestamp
+
 @Transactional
 class PurchaseService {
 
-    def serviceMethod() {
+    def Purchase
 
+    def save(Timestamp beli, Timestamp antar, int harga) {
+        def struk = new Purchase(purchaseDate: a, deliveryDate: b, totalPrice: c)
+        struk.purchaseDate =
+        struk.deliveryDate =
+        struk.totalPrice =
+        struk.save()
     }
 
-    def getAllCendol() {
+    def viewBranch() {
         return CompanyBranch.list()
     }
 }

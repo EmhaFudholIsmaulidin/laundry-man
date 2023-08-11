@@ -5,13 +5,15 @@ class PurchaseController {
     def purchaseService
 
     def index() {
-        def cabanggue = purchaseService.getAllCendol()
+        def cabanggue = purchaseService.viewBranch()
         model: [cabang: cabanggue]
     }
 
     def savePurchaseInvoice(){
-        Purchase invoice = new Purchase(purchaseDate: params.date, deliveryDate: params.delivery, totalPrice: params.price)
-        invoice.save()
+        def title = params.title
+        def content = params.content
+        purchaseService.save(title, content)
+        redirect(action: "list")
     }
 
     def updatePurchaseInvoice(){
