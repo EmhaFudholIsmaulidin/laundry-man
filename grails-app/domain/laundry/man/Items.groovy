@@ -10,9 +10,9 @@ class Items {
     static hasMany = [purchaseItems: PurchaseItems]
 
     static constraints = {
-        itemName blank: false, unique: true
+        itemName blank: false
         itemPrice blank: false
         durationHrs blank: false
-        description blank: true, maxSize: 1000
+        description blank: true
     }
 }

@@ -1,8 +1,10 @@
 package laundry.man
 
+import java.sql.Timestamp
+
 class Purchase {
-    String purchaseDate
-    String deliveryDate
+    Timestamp purchaseDate
+    Timestamp deliveryDate
     int totalPrice
 
     static belongsTo = [customer: Customer, courier: Courier, address: Address]

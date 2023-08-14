@@ -8,8 +8,8 @@ class Customer {
     static hasMany = [address: Address]
 
     static constraints = {
-        email email: true, unique: true
-        name blank: false
-        telephone blank: false, size: 11..13
+        email blank: true, email: true, unique: true
+        name blank: true
+        telephone blank: true, size: 11..13
     }
 }

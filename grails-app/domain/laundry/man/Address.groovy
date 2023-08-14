@@ -12,8 +12,8 @@ class Address {
 
     static constraints = {
         fullAddress blank: false
-        block blank: true
-        number blank: false
+        block nullable: true, maxSize: 4
+        number blank: false, maxSize: 4
         district blank: false
         subDistrict blank: false
         postcode blank: false, size: 5
