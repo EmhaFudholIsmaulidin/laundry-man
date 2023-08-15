@@ -4,19 +4,34 @@ class ItemsController {
 
     def index() {
         def items = Items.list()
-        def a = Courier.list()
-        [items: items, a: a]
+        [items: items]
+    }
+
+    def admin() {
+
     }
 
     def create() {
-        [items: Items]
+        def items = Items.list()
+        [items: items]
     }
 
-    def update() {
-        [items: Items]
+    def save() {
+        def barang = new Items(params)
+        if (barang.save()) {
+            flash.message = "Barang telah tersimpan. ${params}"
+            redirect(action: "index")
+        } else {
+            render(view: "create", model: [item: barang])
+        }
     }
 
     def delete() {
-        [items: Items]
+    }
+
+
+
+    def update() {
+
     }
 }

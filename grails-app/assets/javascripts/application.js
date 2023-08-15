@@ -19,3 +19,15 @@ if (typeof jQuery !== 'undefined') {
         });
     })(jQuery);
 }
+
+var flagdarkMode = false;
+
+function modeGelap() {
+    if (flagdarkMode){
+        document.getElementById("badan").style.backgroundColor = "#000000";
+        document.getElementById("div").style.color = "#ffffff";
+    }else{
+        document.getElementById("badan").style.backgroundColor = "#ffffff";
+        document.getElementById("div").style.color = "#000000";
+    }
+};

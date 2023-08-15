@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout"/>
-        <g:set var="entityName" value="${message(code: 'items.label', default: 'Items')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
+        <meta name="layout" content="main"/>
         <style>
+            :root {
+                --main-color: rgb(255, 255, 255);
+                --secondary-color: rgb(0, 0, 0);
+            }
             body {
-                background-color: #000000;
-                transition: .5s ease;
+
             }
             div {
-                color: #ffffff;
-                transition: .5s ease;
+
             }
         </style>
 
     </head>
-    <body id="badan">
-    <div id="div">
-        ${items.itemName}
-        ${a.courierName}
-    </div>
-    <button onclick="modeGelap()" id="dark">Pencet Aku Cuyyyy</button>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                <div id="listpelanggan">
+                    <table id="tableapelanggan">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Jasa</th>
+                            <th>Tarif</th>
+                            <th>Deskripsi</th>
+                            <th>Lama Pengerjaan</th>
+                        </tr>
+                        <g:each var="entry" in="${items}">
+                            <tr>
+                                <td>${entry.id}</td>
+                                <td>${entry.itemName}</td>
+                                <td>${entry.itemPrice}</td>
+                                <td>${entry.description}</td>
+                                <td>${entry.durationHrs}</td>
+                                <td>
+                                    <button style="padding: 5px; text-align: center; border-radius: 25px; background-color: cadetblue">Edit</button>
+                                    <button style="padding: 5px; text-align: center; border-radius: 25px; background-color: darkorange">Delete</button></td>
+                            </tr>
+                        </g:each>
+                    </table>
+                </div>
+                <div style="padding: 20px; text-align: center; border-radius: 25px; background-color: lightcoral" class="button">
+                    <g:link class="create" action="create">Add</g:link>
+                </div>
+                <div style="padding: 20px; text-align: center; border-radius: 25px; background-color: #5ef065" class="button">
+                    <g:link class="delete" action="delete">Hapus</g:link>
+                </div>
+                <g:if test="${flash.message}">
+                    <div class="message" role="status">${flash.message}</div>
+                </g:if>
+            </div>
+
+        </div>
+
 
     <script>
-        var flagdarkMode = false;
 
-        function modeGelap() {
-            if (document.getElementById("badan").style.backgroundColor === "rgb(255, 255, 255)"){
-                document.getElementById("badan").style.backgroundColor = "#000000";
-                document.getElementById("div").style.color = "#ffffff";
-            }else{
-                document.getElementById("badan").style.backgroundColor = "#ffffff";
-                document.getElementById("div").style.color = "#000000";
-            }
-        };
     </script>
     </body>
 </html>
