@@ -5,10 +5,10 @@ import java.sql.Timestamp
 class PurchaseController {
 
     def purchaseService
-    def item = Items.findAll()
-    def customer = Customer.findAll()
-    def courier = Courier.findAll()
-    def address = Address.findAll()
+//    def item = Items.findAll()
+//    def customer = Customer.findAll()
+//    def courier = Courier.findAll()
+//    def address = Address.findAll()
 
     def index() {
 
@@ -25,8 +25,8 @@ class PurchaseController {
        def ass = params.item
 
         trans.totalPrice = purchaseService.total(barang.itemPrice, params.durationHrs)
-//        trans.purchaseDate = purchaseService.getDate()
-//        trans.deliveryDate = purchaseService.addDate(trans.purchaseDate, durationHrs)
+        trans.purchaseDate = purchaseService.getDate()
+        trans.deliveryDate = purchaseService.addDate(trans.purchaseDate, durationHrs)
 
         if (trans.save()) {
             flash.message = "Barang telah tersimpan."

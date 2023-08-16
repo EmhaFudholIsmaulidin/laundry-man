@@ -15,8 +15,12 @@
 <body>
     <div class="wrapper">
         <div class="container">
+                                                                                                                                                                    <p>emang boleh sekaget itu</p>
             <div class="inputan" >
-                <g:form style="display: flex" controller="Items" action="save">
+                <g:form style="display: flex" controller="Items" action="update">
+                    <g:if test="${id}">
+                        <g:set var="x" value="true"/>
+                    </g:if>
                     <div class="label">
                         <ul style="display: flex; flex-direction: column; justify-content: space-between" >
                             <li>Nama Jasa : </li>
@@ -27,13 +31,14 @@
                     </div>
                     <div class="inputan">
                         <ul>
-                            <li><g:textField name="itemName"/></li>
-                            <li><g:textField name="itemPrice"/></li>
-                            <li><g:textField name="description"/></li>
-                            <li><g:textField name="durationHrs"/></li>
+                            <li><g:hiddenField name="editId" value="${x?id:''}"/></li>
+                            <li><g:textField name="itemName" value="${x?itemName:''}"/></li>
+                            <li><g:textField name="itemPrice" value="${x?itemPrice:''}"/></li>
+                            <li><g:textField name="description" value="${x?description:''}"/></li>
+                            <li><g:textField name="durationHrs" value="${x?durationHrs:''}"/></li>
                         </ul>
                     </div>
-                    <g:submitButton name="create" value="Gasss"></g:submitButton>
+                    <g:submitButton name="edit" value="Gasss"></g:submitButton>
                 </g:form>
             </div>
         </div>

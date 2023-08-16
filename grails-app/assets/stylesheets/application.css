@@ -60,3 +60,10 @@ body {
     margin: auto;
     max-width: 1100px;
 }
+
+table {
+    width: 100%;
+}
+th, tr, td {
+    padding: 0 0 10px 10px;
+}
