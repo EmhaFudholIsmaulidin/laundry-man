@@ -7,9 +7,11 @@
     <body>
     <div class="wrapper">
         <div class="container">
-            <h1>Laundry<br>Man</h1>
-            <br>
-            <p>Press spacebar to skip.</p>
+            <h1 class="hometitle">Laundry<br>Man.</h1>
+        </div>
+        <div class="laundry" style="display:none">
+            <h2>Pesan Laundry</h2>
+
         </div>
     </div>
     </body>

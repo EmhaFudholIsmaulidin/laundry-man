@@ -1,8 +1,8 @@
 package laundry.man
 
 class CompanyBranch {
-    String address
     String branchName
+    String address
 
     static constraints = {
         branchName blank: false

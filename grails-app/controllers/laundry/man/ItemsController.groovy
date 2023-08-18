@@ -8,27 +8,11 @@ class ItemsController {
     }
 
     def create() {
-        def items = Items.list()
-        [
-                items: items,
-                id: params.id,
-                itemName: params.itemName,
-                itemPrice: params.itemPrice,
-                description: params.description,
-                durationHrs: params.durationHrs
-        ]
     }
 
-    def edit(){
-        def items = Items.list()
-        [
-         items: items,
-         id: params.id,
-         itemName: params.itemName,
-         itemPrice: params.itemPrice,
-         description: params.description,
-         durationHrs: params.durationHrs
-        ]
+    def edit(Long id){
+        def barang = Items.get(id)
+        [barang: barang]
     }
 
     def save() {
@@ -38,7 +22,7 @@ class ItemsController {
             redirect(action: "index", model: [params])
         } else {
             flash.message = "Ada yang salah, coba cek ${barang.itemName}, ${barang.itemPrice}, ${barang.description}, ${barang.durationHrs}"
-            redirect(action: "index", model: [params])
+            render(view: "create", model: [params])
         }
     }
 
@@ -52,19 +36,17 @@ class ItemsController {
             flash.message = "Gagal dihapus."
             redirect(action: "index")
         }
-
     }
 
     def update() {
         def barang = Items.get(params.editId)
-
         barang.itemName = params.itemName as String
         barang.itemPrice = params.itemPrice as Integer
         barang.description = params.description as String
         barang.durationHrs = params.durationHrs as Integer
         barang.save()
 
-        flash.message = "${params.itemPrice} berhasil diedit."
+        flash.message = "${params.itemName} berhasil diedit."
         redirect(action: "index")
     }
 }

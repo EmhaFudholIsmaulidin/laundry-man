@@ -11,8 +11,8 @@ class Items {
 
     static constraints = {
         itemName blank: false
-        itemPrice blank: false
-        durationHrs blank: false
-        description blank: true
+        itemPrice blank: false, min: 0
+        durationHrs blank: false, min: 0
+        description nullable: true
     }
 }

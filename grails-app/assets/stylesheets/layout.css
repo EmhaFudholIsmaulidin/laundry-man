@@ -1,0 +1,223 @@
+:root {
+    --font: 'Roboto Condensed', sans-serif;
+    --maincolor: rgb(0, 74, 173);
+    --secondcolor: rgb(255, 145, 77);
+    --backcolor: aliceblue;
+    --fontform: 1rem;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Admin */
+
+.controller {
+    margin-bottom: 10px;
+    transition: .5s ease;
+}
+
+.controller:hover {
+    transform: translateX(2%);
+}
+
+.message {
+    font-size: 2.5rem;
+    font-weight: 900;
+    animation: popup ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    position: absolute;
+    right: 50px;
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(-80%);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(0%);
+    }
+}
+
+
+/* CSS Reset */
+
+body {
+    font-family: var(--font);
+}
+
+.wrapper {
+    background-color: var(--backcolor);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    margin: auto;
+    max-width: 1100px;
+}
+
+table {
+    width: 100%;
+}
+th, tr, td {
+    padding: 0 0 10px 10px;
+}
+tr:nth-child(2n) {
+    background-color: #e6efff;
+}
+tr:nth-child(2n+3) {
+    background-color: #f1f1ff;
+}
+
+/* Seputar Form */
+
+.button {
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    margin: auto;
+    border-radius: 25px;
+    max-width: 100px;
+}
+
+.button-l {
+    padding: 15px;
+    font-weight: 900;
+    background-color: var(--secondcolor);
+}
+
+.button-s {
+    padding: 5px 10px;
+    background-color: var(--secondcolor);
+}
+
+.submitter {
+    margin-top: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputform {
+    display: flex;
+    margin: 20px auto;
+}
+
+.inputform .label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.label > * {
+    font-size: var(--fontform);
+    font-weight: 900;
+}
+
+.inputform .input {
+    margin-left: 20px;
+}
+
+a
+{
+    color: var(--maincolor);
+    text-decoration: none ;
+}
+a:hover
+{
+    text-decoration:none;
+    cursor:pointer;
+}
+
+input {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px black solid;
+    font-size: var(--fontform);
+}
+
+/* Home Display */
+
+h1 {
+    font-size: 12rem;
+}
+
+h2 {
+    font-size: 6rem;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    color: var(--maincolor);
+    font-weight: 900;
+}
+
+/* Header */
+
+.header {
+    height: 80px;
+    margin: auto;
+    position: fixed;
+}
+
+.header img {
+    height: 50px;
+    padding: 20px;
+    margin: auto;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}

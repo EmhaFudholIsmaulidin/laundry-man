@@ -110,6 +110,10 @@ class BootStrap {
         Timestamp future = new Timestamp(soon.timeInMillis)
         println("Waktu nanti adalah ${future}")
 
+//        trans.totalPrice = purchaseService.total(barang.itemPrice, params.durationHrs)
+//        trans.purchaseDate = purchaseService.getDate()
+//        trans.deliveryDate = purchaseService.addDate(trans.purchaseDate, durationHrs)
+
         // Create and save the Purchase object
         Purchase invoice1 = new Purchase(
                 purchaseDate: now,

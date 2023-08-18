@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: emhaismaulidin
-  Date: 8/16/23
-  Time: 12:50 PM
+  Date: 8/15/23
+  Time: 1:01 PM
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -15,26 +15,24 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <div class="inputan" >
-                <g:form style="display: flex" controller="Items" action="save">
-                    <div class="label">
-                        <ul style="display: flex; flex-direction: column; justify-content: space-between" >
-                            <li>Nama Jasa : </li>
-                            <li>Harga Jasa : </li>
-                            <li>Deskripsi : </li>
-                            <li>Durasi Jasa : </li>
+            <div class="inputcontainer" >
+                <g:form class="form" controller="Courier" action="save">
+                    <div style="display: flex" class="inputform">
+                        <ul class="label">
+                            <li>Nama Kurir </li>
+                            <li>Tarif per Kilometer </li>
+                        </ul>
+                        <ul class="input">
+                            <li><g:hiddenField name="editId"/></li>
+                            <li><g:textField name="courierName"/></li>
+                            <li><g:textField name="priceKm"/></li>
                         </ul>
                     </div>
-                    <div class="inputan">
-                        <ul>
-                            <li><g:textField name="itemName"/></li>
-                            <li><g:textField name="itemPrice"/></li>
-                            <li><g:textField name="description"/></li>
-                            <li><g:textField name="durationHrs"/></li>
-                        </ul>
-                    </div>
-                    <g:submitButton name="create" value="Gasss"></g:submitButton>
+                    <g:submitButton class="button" name="create" value="Create"></g:submitButton>
                 </g:form>
+                <g:if test="${flash.message}">
+                    <div class="message" role="status">${flash.message}</div>
+                </g:if>
             </div>
         </div>
     </div>

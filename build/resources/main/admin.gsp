@@ -7,14 +7,16 @@
     <body>
         <div class="wrapper">
             <div class="container">
-                <h1 style="font-size: 4rem">Admin View:</h1>
-                <g:each var="c" in="${grailsApplication.controllerClasses.sort{it.name}}">
-                    <li class="controller" style="font-size: 2rem; text-decoration: none; list-style: none">
-                        <g:link controller="${c.logicalPropertyName}">${c.name}</g:link>
-                    </li>
-                </g:each>
+                <h2>Admin View:</h2>
                 <br>
-                <g:submitButton name="create" value="Pencet Kalau Gabut" />
+                <div class="linkwrapper">
+                    <g:each var="c" in="${grailsApplication.controllerClasses.sort{it.name}}">
+                        <li class="controller" style="font-size: 2rem; text-decoration: none; list-style: none">
+                            <g:link controller="${c.logicalPropertyName}">${c.name}</g:link>
+                        </li>
+                    </g:each>
+                </div>
+                <br>
             </div>
         </div>
     </body>

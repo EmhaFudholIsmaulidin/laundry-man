@@ -1,0 +1,48 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: emhaismaulidin
+  Date: 8/15/23
+  Time: 1:01 PM
+--%>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+<html>
+<head>
+    <meta name="layout" content="main"/>
+    <title></title>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="inputcontainer" >
+            <g:form class="form" controller="Address" action="update">
+                <div style="display: flex" class="inputform">
+                    <ul class="label">
+                        <li>Alamat Lengkap </li>
+                        <li>Blok </li>
+                        <li>Nomor </li>
+                        <li>Kecamatan </li>
+                        <li>Kelurahan </li>
+                        <li>Kode Pos </li>
+                    </ul>
+                    <ul class="input">
+                        <li><g:hiddenField name="editId" value="${address.id}"/></li>
+                        <li><g:textField name="fullAddress" value="${address.fullAddress}"/></li>
+                        <li><g:textField name="block" value="${address.block}"/></li>
+                        <li><g:textField name="number" value="${address.number}"/></li>
+                        <li><g:textField name="district" value="${address.district}"/></li>
+                        <li><g:textField name="subDistrict" value="${address.subDistrict}"/></li>
+                        <li><g:textField name="postcode" value="${address.postcode}"/></li>
+                    </ul>
+                </div>
+                <g:submitButton class="button" name="create" value="Create"></g:submitButton>
+            </g:form>
+            <g:if test="${flash.message}">
+                <div class="message" role="status">${flash.message}</div>
+            </g:if>
+        </div>
+    </div>
+</div>
+</body>
+</html>

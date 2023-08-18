@@ -54,6 +54,9 @@ body {
 
 .wrapper {
     background-color: aliceblue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .container {
@@ -66,4 +69,45 @@ table {
 }
 th, tr, td {
     padding: 0 0 10px 10px;
+}
+
+/* Seputar Form */
+
+.button {
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #c8d4ff;
+    max-width: 100px;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputform {
+    display: flex;
+    margin: 20px auto;
+}
+
+.inputform .label {
+    display: flex; flex-direction: column; justify-content: space-evenly;
+}
+
+.inputform .input {
+    margin-left: 20px;
+}
+
+/* Home Display */
+
+h1 {
+    font-weight: 900;
+    font-size: 12rem;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 6rem;
 }

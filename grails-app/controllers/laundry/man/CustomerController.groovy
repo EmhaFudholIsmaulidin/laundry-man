@@ -1,107 +1,51 @@
 package laundry.man
 
-import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
-
-@Transactional(readOnly = true)
 class CustomerController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Customer.list(params), model:[customerCount: Customer.count()]
-    }
-
-    def show(Customer customer) {
-        respond customer
+    def index() {
+        def customer = Customer.list()
+        [customer: customer]
     }
 
     def create() {
-        respond new Customer(params)
     }
 
-    @Transactional
-    def save(Customer customer) {
-        if (customer == null) {
-            transactionStatus.setRollbackOnly()
-            notFound()
-            return
-        }
+    def edit(Long id){
+        def customer = Customer.get(id)
+        [customer: customer]
+    }
 
-        if (customer.hasErrors()) {
-            transactionStatus.setRollbackOnly()
-            respond customer.errors, view:'create'
-            return
-        }
-
-        customer.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*' { respond customer, [status: CREATED] }
+    def save() {
+        def customer = new Customer(params)
+        if (customer.save()) {
+            flash.message = "Berhasil disimpan."
+            redirect(action: "index", model: [params])
+        } else {
+            flash.message = "Ada yang salah, coba cek ${customer.name}, ${customer.email}, ${customer.telephone}}"
+            render(view: "create", model: [params])
         }
     }
 
-    def edit(Customer customer) {
-        respond customer
+    def update() {
+        def customer = Customer.get(params.editId)
+        customer.name = params.name as String
+        customer.email = params.email as String
+        customer.telephone = params.telephone as String
+        customer.save()
+
+        flash.message = "${params.name} berhasil diedit."
+        redirect(action: "index")
     }
 
-    @Transactional
-    def update(Customer customer) {
-        if (customer == null) {
-            transactionStatus.setRollbackOnly()
-            notFound()
-            return
-        }
-
-        if (customer.hasErrors()) {
-            transactionStatus.setRollbackOnly()
-            respond customer.errors, view:'edit'
-            return
-        }
-
-        customer.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*'{ respond customer, [status: OK] }
-        }
-    }
-
-    @Transactional
-    def delete(Customer customer) {
-
-        if (customer == null) {
-            transactionStatus.setRollbackOnly()
-            notFound()
-            return
-        }
-
-        customer.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
+    def delete() {
+        def delete = Customer.get(params.id)
+        if (delete){
+            delete.delete()
+            flash.message = "Berhasil dihapus."
+            redirect(action: "index")
+        }else{
+            flash.message = "Gagal dihapus."
+            redirect(action: "index")
         }
     }
 }

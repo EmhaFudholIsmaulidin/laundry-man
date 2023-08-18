@@ -12,6 +12,9 @@ dataSource:
     driverClassName: com.mysql.jdbc.Driver
     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
+server:
+    port: 9999
+
 environments:
     development:
         folder:

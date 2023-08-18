@@ -11,13 +11,22 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <asset:stylesheet src="application.css"/>
+    <asset:stylesheet src="layout.css"/>
 
     <g:layoutHead/>
 </head>
 <body>
-    <button style="position: absolute; top: 20px; left: 20px" onclick="location.href='../'" type="button" id="dark">Home</button>
-    <button style="position: absolute; top: 50px; left: 20px" onclick="location.href='../admin'" type="button" id="dark">Admin</button>
+
+    <div class="header">
+        <a href="/">
+            <img src="/assets/logolaundry.png">
+        </a>
+    </div>
+    <div class="sidebar">
+
+    </div>
+
+    <button style="opacity: 0.001; position: absolute; top: 20px; left: 20px" onclick="location.href='../admin'" type="button" id="dark">Admin</button>
     <g:layoutBody/>
 
     <asset:javascript src="application.js"/>

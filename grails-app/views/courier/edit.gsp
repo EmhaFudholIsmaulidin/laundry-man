@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: emhaismaulidin
-  Date: 8/16/23
-  Time: 12:50 PM
+  Date: 8/15/23
+  Time: 1:01 PM
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -15,30 +15,24 @@
 <body>
 <div class="wrapper">
     <div class="container">
-        <div class="inputan" >
-            <g:form style="display: flex" controller="Items" action="update">
-                <g:if test="${id}">
-                    <g:set var="x" value="true"/>
-                </g:if>
-                <div class="label">
-                    <ul style="display: flex; flex-direction: column; justify-content: space-between" >
-                        <li>Nama Jasa : </li>
-                        <li>Harga Jasa : </li>
-                        <li>Deskripsi : </li>
-                        <li>Durasi Jasa : </li>
+        <div class="inputcontainer" >
+            <g:form class="form" controller="Courier" action="update">
+                <div style="display: flex" class="inputform">
+                    <ul class="label">
+                        <li>Nama Kurir </li>
+                        <li>Tarif per Kilometer </li>
+                    </ul>
+                    <ul class="input">
+                        <li><g:hiddenField name="editId" value="${courier.id}"/></li>
+                        <li><g:textField name="courierName" value="${courier.courierName}"/></li>
+                        <li><g:textField name="priceKm" value="${courier.priceKm}"/></li>
                     </ul>
                 </div>
-                <div class="inputan">
-                    <ul>
-                        <li><g:hiddenField name="editId" value="${x?id:''}"/></li>
-                        <li><g:textField name="itemName" value="${x?itemName:''}"/></li>
-                        <li><g:textField name="itemPrice" value="${x?itemPrice:''}"/></li>
-                        <li><g:textField name="description" value="${x?description:''}"/></li>
-                        <li><g:textField name="durationHrs" value="${x?durationHrs:''}"/></li>
-                    </ul>
-                </div>
-                <g:submitButton name="edit" value="Gasss"></g:submitButton>
+                <g:submitButton class="button" name="create" value="Create"></g:submitButton>
             </g:form>
+            <g:if test="${flash.message}">
+                <div class="message" role="status">${flash.message}</div>
+            </g:if>
         </div>
     </div>
 </div>

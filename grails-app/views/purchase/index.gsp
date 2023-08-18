@@ -2,41 +2,55 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
-        <style>
-            :root {
-                --main-color: rgb(255, 255, 255);
-                --secondary-color: rgb(0, 0, 0);
-            }
-            body {
-
-            }
-            div {
-
-            }
-        </style>
-
     </head>
     <body>
         <div class="wrapper">
             <div class="container">
-%{--                <g:each var="c" in="${items.sort{it.itemName}}">--}%
-%{--                    <li class="controller" style="font-size: 2rem; text-decoration: none; list-style: none">--}%
-%{--                        ${c.itemName}--}%
-%{--                    </li>--}%
-%{--                </g:each>--}%
-                <div style="padding: 20px; text-align: center; border-radius: 25px; background-color: lightcoral" class="button">
-                    <g:link class="create" action="create">Add</g:link>
-                </div>
-                <div style="padding: 20px; text-align: center; border-radius: 25px; background-color: #5ef065" class="button">
-                    <g:link class="delete" action="delete">Hapus</g:link>
-                </div>
+                <g:if test="${purchase}">
+                    <table class="indextable">
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Nama Kurir</th>
+                            <th>Alamat Tujuan</th>
+                            <th>Tanggal Pembelian</th>
+                            <th>Tanggal Pengantaran</th>
+                            <th>Total Harga</th>
+                        </tr>
+                        <g:each var="entry" in="${purchase}">
+                            <tr>
+                                <td>${entry.id}</td>
+                                <td>${entry.customer.name}</td>
+                                <td>${entry.courier.courierName}</td>
+                                <td>${entry.address.fullAddress}</td>
+                                <td>${entry.purchaseDate}</td>
+                                <td>${entry.deliveryDate}</td>
+                                <td>Rp. ${entry.totalPrice}</td>
+                                <td>
+                                    <g:link class="delete" action="delete" params="[id: entry.id]" >
+                                        <div class="button button-s">
+                                            Delete
+                                        </div>
+                                    </g:link>
+                                </td>
+                            </tr>
+                        </g:each>
+                    </table>
+                </g:if>
+                <g:else>
+                    <div>
+                        <h1>No Data Yet</h1>
+                    </div>
+                </g:else>
+                <g:link class="create" action="create">
+                    <div class="button button-l">
+                        Add Data
+                    </div>
+                </g:link>
+                <g:if test="${flash.message}">
+                    <div class="message" role="status">${flash.message}</div>
+                </g:if>
             </div>
-
         </div>
-
-
-    <script>
-
-    </script>
     </body>
 </html>
