@@ -9,16 +9,23 @@
                 <g:if test="${purchaseItems}">
                     <table class="indextable">
                         <tr>
-                            <th>No. Paket</th>
+                            <th></th>
                             <th>No. Transaksi</th>
-                            <th>No. ID Jasa</th>
+                            <th>Jenis Jasa</th>
+                            <th>Jumlah</th>
                         </tr>
                         <g:each var="entry" in="${purchaseItems}">
                             <tr>
                                 <td>${entry.id}</td>
                                 <td>${entry.purchase.id}</td>
-                                <td>${entry.items.id}</td>
-                                <td>
+                                <td>${entry.items.itemName}</td>
+                                <td>${entry.quantity}</td>
+                                <td class="buttonlayout">
+                                    <g:link class="edit" action="edit" params="[id: entry.id]">
+                                        <div class="button button-s">
+                                            Edit
+                                        </div>
+                                    </g:link>
                                     <g:link class="delete" action="delete" params="[id: entry.id]" >
                                         <div class="button button-s">
                                             Delete

@@ -22,9 +22,6 @@
             <img src="/assets/logolaundry.png">
         </a>
     </div>
-    <div class="sidebar">
-
-    </div>
 
     <button style="opacity: 0.001; position: absolute; top: 20px; left: 20px" onclick="location.href='../admin'" type="button" id="dark">Admin</button>
     <g:layoutBody/>

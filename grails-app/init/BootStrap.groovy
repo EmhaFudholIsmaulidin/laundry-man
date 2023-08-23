@@ -1,5 +1,3 @@
-import laundry.man.Address
-import laundry.man.CompanyBranch
 import laundry.man.Courier
 import laundry.man.Customer
 import laundry.man.Items
@@ -38,45 +36,20 @@ class BootStrap {
 
         println("Items Check : items1 = ${paket1.id}, items2 = ${paket2.id}, items3 = ${paket3.id}, items4 = ${paket4.id}")
 
-        CompanyBranch cabang1 = new CompanyBranch(address: "Jl. Tamalanrea Raya", branchName: "LaundryMan Tamalanrea")
-        cabang1.save()
-        CompanyBranch cabang2 = new CompanyBranch(address: "Jl. Sam Ratulangi", branchName: "LaundryMan Ratulangi")
-        cabang2.save()
-        CompanyBranch cabang3 = new CompanyBranch(address: "Jl. Pegangsaan Timur", branchName: "LaundryMan Jakarta")
-        cabang3.save()
-
-        println("Cabang Check : cabang1 = ${cabang1.id}, cabang2 = ${cabang2.id}, cabang3 = ${cabang3.id}")
-
         //Phase 2 : We have customers now. Mereka pun menginput alamat.
 
-        Customer pelanggan1 = new Customer(name: "Bapak Ahnaf", email: "bapakgaul123@gmail.com", telephone: "082156568484")
+        Customer pelanggan1 = new Customer(name: "Bapak Ahnaf", email: "bapakgaul123@gmail.com", telephone: "082156568484", address: "Jl. Teratai no. 3")
         pelanggan1.save()
-        Customer pelanggan2 = new Customer(name: "Bapak Fudhol", email: "bapakgaming69@gmail.com", telephone: "089947462547")
+        Customer pelanggan2 = new Customer(name: "Bapak Fudhol", email: "bapakgaming69@gmail.com", telephone: "089947462547", address: "Jl. Lantebung")
         pelanggan2.save()
-        Customer pelanggan3 = new Customer(name: "Ibu Rahma", email: "ibuheboh21@gmail.com", telephone: "081257355927")
+        Customer pelanggan3 = new Customer(name: "Ibu Rahma", email: "ibuheboh21@gmail.com", telephone: "081257355927", address: "Poros Malino")
         pelanggan3.save()
-        Customer pelanggan4 = new Customer(name: "Ibu Widi", email: "macegaul999@gmail.com", telephone: "082835467834")
+        Customer pelanggan4 = new Customer(name: "Ibu Widi", email: "macegaul999@gmail.com", telephone: "082835467834", address: "Jl. Bandara")
         pelanggan4.save()
-        Customer pelanggan5 = new Customer(name: "Ibu Juli", email: "akusukaiqbal@gmail.com", telephone: "082835467834")
+        Customer pelanggan5 = new Customer(name: "Ibu Juli", email: "akusukaiqbal@gmail.com", telephone: "082835467834", address: "BTN Pao Pao Permai")
         pelanggan5.save()
 
-        //println("Markicek pelanggan : id=${pelanggan5.id}, name=${pelanggan5.name}, email=${pelanggan5.email}, telephone=${pelanggan5.telephone}")
         println("Pelanggan Check : pelanggan1 = ${pelanggan1.id}, pelanggan2 = ${pelanggan2.id}, pelanggan3 = ${pelanggan3.id}, pelanggan4 = ${pelanggan4.id}, pelanggan5 = ${pelanggan5.id}")
-
-        Address alamat1 = new Address(fullAddress: "Jl. Aselole", block: "CH", number: 3, district: "Raha", subDistrict: "Sultra", postcode: 11111, customer: pelanggan1)
-        alamat1.save()
-        Address alamat2 = new Address(fullAddress: "Jl. Prof. S. R. Nur blok EB no. 25", block: "EB", number: 25, district: "Tamalanrea", subDistrict: "Kapasa Raya", postcode: 23474, customer: pelanggan2)
-        alamat2.save()
-        Address alamat3 = new Address(fullAddress: "Jl. Malino Poros no. 420", block: "", number: 420, district: "Malino", subDistrict: "Malino Utara", postcode: 23465, customer: pelanggan3)
-        alamat3.save()
-        Address alamat4 = new Address(fullAddress: "Jl. Paccerakkang no. 421", block: "", number: 421, district: "Daya", subDistrict: "Daya Pusat", postcode: 62447, customer: pelanggan4)
-        alamat4.save()
-        Address alamat5 = new Address(fullAddress: "BTN Pao Pao Permai blok A3 no. 999", block: "A3", number: 999, district: "Gowa", subDistrict: "Gowa Citraland", postcode: 23789, customer: pelanggan5)
-        alamat5.save()
-        Address alamat6 = new Address(fullAddress: "Jl. Teratai no. 3", block: "", number: 3, district: "Wamponiki", subDistrict: "Katobu", postcode: 90133, customer: pelanggan1)
-        alamat6.save()
-
-        println("Alamat Check : alamat1 = ${alamat1.id}, alamat2 = ${alamat2.id}, alamat3 = ${alamat3.id}, alamat4 = ${alamat4.id}, alamat5 = ${alamat5.id}, alamat6 = ${alamat6.id}")
 
 //        Phase 3. Mereka menginput pesanan.
 //
@@ -110,10 +83,6 @@ class BootStrap {
         Timestamp future = new Timestamp(soon.timeInMillis)
         println("Waktu nanti adalah ${future}")
 
-//        trans.totalPrice = purchaseService.total(barang.itemPrice, params.durationHrs)
-//        trans.purchaseDate = purchaseService.getDate()
-//        trans.deliveryDate = purchaseService.addDate(trans.purchaseDate, durationHrs)
-
         // Create and save the Purchase object
         Purchase invoice1 = new Purchase(
                 purchaseDate: now,
@@ -121,10 +90,9 @@ class BootStrap {
                 totalPrice: 50000,
                 customer: pelanggan5,
                 courier: kurir3,
-                address: alamat1
         )
 
-        println "Before saving Purchase: purchaseDate=${invoice1.purchaseDate}, deliveryDate=${invoice1.deliveryDate}, totalPrice=${invoice1.totalPrice}, customer=${invoice1.customer}, courier=${invoice1.courier}, address=${invoice1.address}"
+        println "Before saving Purchase: purchaseDate=${invoice1.purchaseDate}, deliveryDate=${invoice1.deliveryDate}, totalPrice=${invoice1.totalPrice}, customer=${invoice1.customer}, courier=${invoice1.courier}"
 
 //        if (!invoice1.save()) {
 //            println "Errors during Purchase save: ${invoice1.errors}"
@@ -143,25 +111,26 @@ class BootStrap {
         invoice1.addToPurchaseItems(purchaseItems)
         invoice1.save()
 
-        println "After saving Purchase: id=${invoice1.id}, purchaseDate=${invoice1.purchaseDate}, deliveryDate=${invoice1.deliveryDate}, totalPrice=${invoice1.totalPrice}, customer=${invoice1.customer}, courier=${invoice1.courier}, address=${invoice1.address}"
-//        Purchase invoice2 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 500, customer: pelanggan5, courier: kurir1, address: alamat5).addToPurchaseItems(quantity: 4, items: paket1)
-//        invoice2.save()
-//        Purchase invoice3 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 1, customer: pelanggan4, courier: kurir2, address: alamat1).addToPurchaseItems(quantity: 4, items: paket2)
-//        invoice3.save()
-//        Purchase invoice4 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 1000000, customer: pelanggan1, courier: kurir3, address: alamat6).addToPurchaseItems(quantity: 4, items: paket3)
-//        invoice4.save()
-//        Purchase invoice5 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 6969, customer: pelanggan2, courier: kurir1, address: alamat2).addToPurchaseItems(quantity: 4, items: paket4)
-//        invoice5.save()
-//        Purchase invoice6 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 4646, customer: pelanggan3, courier: kurir2, address: alamat3).addToPurchaseItems(quantity: 4, items: paket1)
-//        invoice6.save()
-//        Purchase invoice7 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 42069, customer: pelanggan3, courier: kurir3, address: alamat4).addToPurchaseItems(quantity: 4, items: paket2)
-//        invoice7.save()
-//        Purchase invoice8 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 44444, customer: pelanggan1, courier: kurir1, address: alamat1).addToPurchaseItems(quantity: 4, items: paket3)
-//        invoice8.save()
-//        Purchase invoice9 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 10001, customer: pelanggan2, courier: kurir2, address: alamat3).addToPurchaseItems(quantity: 4, items: paket4)
-//        invoice9.save()
-//        Purchase invoice10 = new Purchase(purchaseDate: now, deliveryDate: future, customer: pelanggan1, courier: kurir3, address: alamat6).addToPurchaseItems(quantity: 4, items: paket1)
-//        invoice10.save()
+        println "After saving Purchase: id=${invoice1.id}, purchaseDate=${invoice1.purchaseDate}, deliveryDate=${invoice1.deliveryDate}, totalPrice=${invoice1.totalPrice}, customer=${invoice1.customer}, courier=${invoice1.courier}"
+        Purchase invoice2 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 500, customer: pelanggan5, courier: kurir1).addToPurchaseItems(quantity: 4, items: paket1)
+        invoice2.save()
+        Purchase invoice3 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 1, customer: pelanggan4, courier: kurir2).addToPurchaseItems(quantity: 4, items: paket2)
+        invoice3.save()
+        Purchase invoice4 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 1000000, customer: pelanggan1, courier: kurir3)
+                .addToPurchaseItems(quantity: 4, items: paket3)
+                .addToPurchaseItems(quantity: 5, items: paket1)
+                .addToPurchaseItems(quantity: 6, items: paket2)
+        invoice4.save()
+        Purchase invoice5 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 6969, customer: pelanggan2, courier: kurir1).addToPurchaseItems(quantity: 4, items: paket4)
+        invoice5.save()
+        Purchase invoice6 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 4646, customer: pelanggan3, courier: kurir2).addToPurchaseItems(quantity: 4, items: paket1)
+        invoice6.save()
+        Purchase invoice7 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 42069, customer: pelanggan3, courier: kurir3).addToPurchaseItems(quantity: 4, items: paket2)
+        invoice7.save()
+        Purchase invoice8 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 44444, customer: pelanggan1, courier: kurir1).addToPurchaseItems(quantity: 4, items: paket3)
+        invoice8.save()
+        Purchase invoice9 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 10001, customer: pelanggan2, courier: kurir2).addToPurchaseItems(quantity: 4, items: paket4)
+        invoice9.save()
 
 
     }

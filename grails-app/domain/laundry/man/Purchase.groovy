@@ -7,12 +7,10 @@ class Purchase {
     Timestamp deliveryDate
     int totalPrice
 
-    static belongsTo = [customer: Customer, courier: Courier, address: Address]
+    static belongsTo = [customer: Customer, courier: Courier]
     static hasMany = [purchaseItems: PurchaseItems]
 
     static constraints = {
-        purchaseDate blank: false
-        deliveryDate blank: false
         totalPrice (blank: false, min: 0)
     }
 }

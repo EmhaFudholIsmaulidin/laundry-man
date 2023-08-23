@@ -5,7 +5,7 @@
   Time: 1:01 PM
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="laundry.man.Customer" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="main"/>
@@ -32,7 +32,11 @@
                             <li><g:textField name="durationHrs"/></li>
                         </ul>
                     </div>
-                    <g:submitButton class="button" name="create" value="Create"></g:submitButton>
+                    <g:submitButton class="button button-l" name="create" value="Create">
+                        <div class="button button-s">
+                            Delete
+                        </div>
+                    </g:submitButton>
                 </g:form>
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>

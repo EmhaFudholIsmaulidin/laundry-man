@@ -16,7 +16,7 @@
 <div class="wrapper">
     <div class="container">
         <div class="inputcontainer" >
-            <g:form class="form" controller="Courier" action="update">
+            <g:form class="form" controller="Customer" action="update">
                 <div style="display: flex" class="inputform">
                     <ul class="label">
                         <li>Nama Pelanggan </li>

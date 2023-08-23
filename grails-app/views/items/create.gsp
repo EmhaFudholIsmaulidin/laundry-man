@@ -5,7 +5,7 @@
   Time: 1:01 PM
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="laundry.man.Customer" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="main"/>

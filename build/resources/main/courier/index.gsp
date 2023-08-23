@@ -17,8 +17,8 @@
                             <tr>
                                 <td>${entry.id}</td>
                                 <td>${entry.courierName}</td>
-                                <td>${entry.priceKm}</td>
-                                <td>
+                                <td>Rp. ${entry.priceKm}</td>
+                                <td class="action">
                                     <g:link class="edit" action="edit" params="[id: entry.id]">
                                         <div class="button button-s">
                                             Edit
@@ -40,7 +40,7 @@
                     </div>
                 </g:else>
                 <g:link class="create" action="create">
-                    <div class="button button-l">
+                    <div class="button button-l submitter">
                         Add Data
                     </div>
                 </g:link>

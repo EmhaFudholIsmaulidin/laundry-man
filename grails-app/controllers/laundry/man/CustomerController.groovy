@@ -38,14 +38,12 @@ class CustomerController {
     }
 
     def delete() {
-        def delete = Customer.get(params.id)
-        if (delete){
-            delete.delete()
-            flash.message = "Berhasil dihapus."
-            redirect(action: "index")
-        }else{
-            flash.message = "Gagal dihapus."
-            redirect(action: "index")
-        }
+        def customer = Customer.get(params.id)
+        customer
+                .purchase
+                .clear()
+        customer
+                .delete()
+        redirect(action: "index")
     }
 }

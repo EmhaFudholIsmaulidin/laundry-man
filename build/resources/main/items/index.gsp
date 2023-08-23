@@ -19,9 +19,9 @@
                             <tr>
                                 <td>${entry.id}</td>
                                 <td>${entry.itemName}</td>
-                                <td>${entry.itemPrice}</td>
+                                <td>Rp. ${entry.itemPrice}</td>
                                 <td>${entry.description}</td>
-                                <td>${entry.durationHrs}</td>
+                                <td>${entry.durationHrs} jam</td>
                                 <td>
                                     <g:link class="edit" action="edit" params="[id: entry.id]">
                                         <div class="button button-s">

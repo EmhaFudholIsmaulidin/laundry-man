@@ -4,12 +4,14 @@ class Customer {
     String name
     String email
     String telephone
+    String address
 
-    static hasMany = [address: Address]
+    static hasMany = [purchase: Purchase]
 
     static constraints = {
         email blank: true, email: true, unique: true
         name blank: true
-        telephone blank: true, size: 11..13
+        telephone blank: true
+        address blank: true
     }
 }

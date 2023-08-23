@@ -12,7 +12,6 @@
                             <th>No.</th>
                             <th>Nama Pelanggan</th>
                             <th>Nama Kurir</th>
-                            <th>Alamat Tujuan</th>
                             <th>Tanggal Pembelian</th>
                             <th>Tanggal Pengantaran</th>
                             <th>Total Harga</th>
@@ -22,7 +21,6 @@
                                 <td>${entry.id}</td>
                                 <td>${entry.customer.name}</td>
                                 <td>${entry.courier.courierName}</td>
-                                <td>${entry.address.fullAddress}</td>
                                 <td>${entry.purchaseDate}</td>
                                 <td>${entry.deliveryDate}</td>
                                 <td>Rp. ${entry.totalPrice}</td>
@@ -35,6 +33,9 @@
                                 </td>
                             </tr>
                         </g:each>
+                        <g:paginate next="Forward" prev="Back"
+                                    maxsteps="0" controller="book"
+                                    action="list" total="${purchase}" />
                     </table>
                 </g:if>
                 <g:else>
@@ -42,11 +43,6 @@
                         <h1>No Data Yet</h1>
                     </div>
                 </g:else>
-                <g:link class="create" action="create">
-                    <div class="button button-l">
-                        Add Data
-                    </div>
-                </g:link>
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
