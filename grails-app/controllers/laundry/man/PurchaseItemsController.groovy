@@ -13,6 +13,12 @@ class PurchaseItemsController {
     }
 
     def update() {
-        def purchaseItems = PurchaseItems.get(2)
+        def purchaseItems = PurchaseItems.get(params.editId)
+
+        purchaseItems.quantity = params.quantity as Integer
+        purchaseItems.save()
+
+        flash.message = "Berhasil ditimbang."
+        redirect(action: "index")
     }
 }

@@ -28,6 +28,7 @@ class CourierController {
 
     def update() {
         def courier = Courier.get(params.editId)
+
         courier.courierName = params.courierName as String
         courier.priceKm = params.priceKm as Integer
         courier.save()

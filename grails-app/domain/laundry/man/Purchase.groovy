@@ -11,6 +11,5 @@ class Purchase {
     static hasMany = [purchaseItems: PurchaseItems]
 
     static constraints = {
-        totalPrice (blank: false, min: 0)
     }
 }

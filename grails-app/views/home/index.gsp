@@ -34,6 +34,11 @@
                 </div>
                 <g:submitButton name="input" value="Pesan!"/>
             </g:form>
+
+%{--            <button onclick="">--}%
+%{--                <div class="order">I want to order.</div>--}%
+%{--            </button>--}%
+
         </div>
     </div>
     </body>

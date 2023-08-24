@@ -34,6 +34,8 @@
                 </div>
                 <g:submitButton name="input" value="Pesan!"/>
             </g:form>
+
+            <div>${flash.message}</div>
         </div>
     </div>
     </body>

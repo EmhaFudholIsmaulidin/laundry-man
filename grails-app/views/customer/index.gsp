@@ -13,6 +13,7 @@
                             <th>Nama Pelanggan</th>
                             <th>E-mail</th>
                             <th>No. Telepon</th>
+                            <th>Alamat Lengkap</th>
                         </tr>
                         <g:each var="entry" in="${customer}">
                             <tr>
@@ -20,6 +21,7 @@
                                 <td>${entry.name}</td>
                                 <td>${entry.email}</td>
                                 <td>${entry.telephone}</td>
+                                <td>${entry.address}</td>
                                 <td>
                                     <g:link class="edit" action="edit" params="[id: entry.id]">
                                         <div class="button button-s">

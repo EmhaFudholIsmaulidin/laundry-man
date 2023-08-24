@@ -65,29 +65,29 @@ table {
 .message {
     font-size: 2.5rem;
     font-weight: 900;
-    /*animation: popup ease 2s;*/
-    /*animation-iteration-count: 1;*/
-    /*animation-fill-mode: forwards;*/
+    animation: popup ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     position: absolute;
     right: 50px;
 }
 
-/*@keyframes popup {*/
-/*    0% {*/
-/*        opacity: 0;*/
-/*    }*/
-/*    20% {*/
-/*        opacity: 1;*/
-/*        transform: translateX(-80%);*/
-/*    }*/
-/*    80% {*/
-/*        opacity: 1;*/
-/*    }*/
-/*    100% {*/
-/*        opacity: 0;*/
-/*        transform: translateX(0%);*/
-/*    }*/
-/*}*/
+@keyframes popup {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(-80%);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(0%);
+    }
+}
 
 
 /* CSS Reset */

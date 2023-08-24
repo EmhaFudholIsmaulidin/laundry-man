@@ -111,7 +111,7 @@ class BootStrap {
         invoice1.addToPurchaseItems(purchaseItems)
         invoice1.save()
 
-        println "After saving Purchase: id=${invoice1.id}, purchaseDate=${invoice1.purchaseDate}, deliveryDate=${invoice1.deliveryDate}, totalPrice=${invoice1.totalPrice}, customer=${invoice1.customer}, courier=${invoice1.courier}"
+        //println "After saving Purchase: id=${invoice1.id}, purchaseDate=${invoice1.purchaseDate}, deliveryDate=${invoice1.deliveryDate}, totalPrice=${invoice1.totalPrice}, customer=${invoice1.customer}, courier=${invoice1.courier}"
         Purchase invoice2 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 500, customer: pelanggan5, courier: kurir1).addToPurchaseItems(quantity: 4, items: paket1)
         invoice2.save()
         Purchase invoice3 = new Purchase(purchaseDate: now, deliveryDate: future, totalPrice: 1, customer: pelanggan4, courier: kurir2).addToPurchaseItems(quantity: 4, items: paket2)

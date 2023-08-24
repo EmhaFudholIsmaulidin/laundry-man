@@ -22,12 +22,14 @@
                             <li>Nama Pelanggan </li>
                             <li>E-mail </li>
                             <li>No. Telepon </li>
+                            <li>Alamat Lengkap </li>
                         </ul>
                         <ul class="input">
                             <li><g:hiddenField name="editId"/></li>
                             <li><g:textField name="name"/></li>
                             <li><g:textField name="email"/></li>
                             <li><g:textField name="telephone"/></li>
+                            <li><g:textField name="address"/></li>
                         </ul>
                     </div>
                     <g:submitButton class="button" name="create" value="Create"></g:submitButton>

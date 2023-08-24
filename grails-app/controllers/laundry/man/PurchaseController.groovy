@@ -10,7 +10,9 @@ class PurchaseController {
     }
 
     def save(String name, String email, String telephone, String address, Long item, Long courier) {
-        purchaseService.save(name, email, telephone, address, item, courier)
+        def message = purchaseService.save(name, email, telephone, address, item, courier)
+        flash.message = message
+        redirect(action: "index")
     }
 
     def delete() {
